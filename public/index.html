@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body { background: #111; color: white; text-align: center; font-family: sans-serif; }
+        .card { background: #222; padding: 20px; border-radius: 15px; margin: 10px; border: 1px solid #333; }
+        .btn { background: #0088cc; color: white; border: none; padding: 15px; border-radius: 10px; width: 100%; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2 id="user">Игрок</h2>
+        <p>Баланс: 0 ⭐</p>
+    </div>
+    <div class="card">
+        <button class="btn" onclick="window.Telegram.WebApp.showAlert('Скоро подключим оплату!')">ПОПОЛНИТЬ ЧЕРЕЗ ЗВЕЗДЫ</button>
+    </div>
+    <script>
+        const tg = window.Telegram.WebApp;
+        tg.expand();
+        document.getElementById('user').innerText = tg.initDataUnsafe.user.first_name;
+    </script>
+</body>
+</html>
